@@ -1,0 +1,26 @@
+.flex-container {
+    display: flex;
+}
+
+#app {
+    width: 900px;
+    height: auto;
+}
+
+#drawArea {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px black solid;
+    width: 500px;
+    height: 500px;
+    
+}
+
+.pixel {
+    border: 1px solid rgb(223, 223, 223);
+    flex-wrap: wrap;
+}
+
+.pixel:hover {
+    border: 1px solid black;
+}
