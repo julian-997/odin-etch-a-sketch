@@ -3,6 +3,8 @@ const DEFAULT_SIZE = 16;
 const drawArea = document.querySelector("#drawArea");
 const pixels = document.querySelectorAll("#drawArea > div");
 const btnSize = document.querySelector("#btnSize");
+const btnClear = document.querySelector("#btnClear");
+
 
 function createDrawArea(width){
     numOfPixels = width * width;
@@ -38,6 +40,7 @@ function changeGridSize(size) {
         alert("Invalid entry. Please try again.");
         size = oldSize;
     }
+    return size;
 }
 
 let size = DEFAULT_SIZE;
@@ -45,6 +48,10 @@ let size = DEFAULT_SIZE;
 createDrawArea(size);
 
 btnSize.addEventListener('click', () => {
-    changeGridSize(size);
+    size = changeGridSize(size);
 })  
 
+btnClear.addEventListener('click', () => {
+    removeDrawArea();
+    createDrawArea(size);
+})

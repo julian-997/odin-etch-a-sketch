@@ -28,4 +28,9 @@
 
 #controlPanel {
     padding: 50px;
+    flex-direction: column;
+}
+
+.controls {
+    margin: 5px;
 }
