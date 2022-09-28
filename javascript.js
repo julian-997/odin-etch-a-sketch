@@ -26,13 +26,7 @@ function removeDrawArea() {
     }
 }
 
-let size = DEFAULT_SIZE;
-
-createDrawArea(size);
-console.log(typeof(typeof(size)));
-
-
-btnSize.addEventListener('click', () => {
+function changeGridSize(size) {
     let oldSize = size;
     size = prompt("Enter number of pixels for each side: (max 100)");
     size = parseInt(size);
@@ -44,6 +38,13 @@ btnSize.addEventListener('click', () => {
         alert("Invalid entry. Please try again.");
         size = oldSize;
     }
-    
-    
+}
+
+let size = DEFAULT_SIZE;
+
+createDrawArea(size);
+
+btnSize.addEventListener('click', () => {
+    changeGridSize(size);
 })  
+
