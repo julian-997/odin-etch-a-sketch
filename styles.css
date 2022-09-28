@@ -3,7 +3,7 @@
 }
 
 #app {
-    width: 900px;
+    width: 1100px;
     height: auto;
 }
 
@@ -11,8 +11,8 @@
     display: flex;
     flex-wrap: wrap;
     border: 2px black solid;
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     
 }
 
@@ -21,6 +21,11 @@
     flex-wrap: wrap;
 }
 
-.pixel:hover {
-    border: 1px solid black;
+
+.colored {
+    background-color: black;
+}
+
+#controlPanel {
+    padding: 50px;
 }

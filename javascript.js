@@ -1,16 +1,49 @@
+const DEFAULT_SIZE = 16;
+
 const drawArea = document.querySelector("#drawArea");
-const gridItem = document.querySelectorAll("#drawArea > div");
+const pixels = document.querySelectorAll("#drawArea > div");
+const btnSize = document.querySelector("#btnSize");
 
 function createDrawArea(width){
-    size = width * width;
-    for (let i = 0; i < size; i++ ) {
+    numOfPixels = width * width;
+    for (let i = 0; i < numOfPixels; i++ ) {
         const pixel = document.createElement("div");
         pixel.classList.add("pixel");
-        pixel.style.width = ((500/width)-2) + "px";
-        pixel.style.height = ((500/width)-2) + "px";
+        pixel.style.width = ((800/width)-2) + "px";
+        pixel.style.height = ((800/width)-2) + "px";
+        pixel.addEventListener('mouseover', () => {
+            pixel.classList.add("colored");
+        })
         document.getElementById("drawArea").appendChild(pixel);
     }
     
 }
 
-createDrawArea(32);
+function removeDrawArea() {
+    const oldPixels = document.getElementsByClassName("pixel");
+    while (oldPixels.length > 0) {
+        oldPixels[0].parentNode.removeChild(oldPixels[0]);
+    }
+}
+
+let size = DEFAULT_SIZE;
+
+createDrawArea(size);
+console.log(typeof(typeof(size)));
+
+
+btnSize.addEventListener('click', () => {
+    let oldSize = size;
+    size = prompt("Enter number of pixels for each side: (max 100)");
+    size = parseInt(size);
+    if ((size <= 100) && (size >= 1)) {
+        removeDrawArea();
+        createDrawArea(size);
+    }
+    else {
+        alert("Invalid entry. Please try again.");
+        size = oldSize;
+    }
+    
+    
+})  
